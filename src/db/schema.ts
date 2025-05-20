@@ -6,6 +6,8 @@
 //   age: integer().notNull(),
 //   email: varchar({ length: 255 }).notNull().unique(),
 // });
+
+
 import { pgTable, serial, text, timestamp, varchar } from 'drizzle-orm/pg-core';
 
 export const posts = pgTable('posts', {
