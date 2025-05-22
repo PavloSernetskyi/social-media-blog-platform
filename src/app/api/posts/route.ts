@@ -11,6 +11,7 @@ export async function POST(req: Request) {
       content: body.content,
       slug: body.slug,
       authorName: body.authorName,
+      imageUrl: body.imageUrl,
     });
 
     return NextResponse.json({ success: true });

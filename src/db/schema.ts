@@ -7,4 +7,5 @@ export const posts = pgTable('posts', {
   slug: varchar('slug', { length: 256 }).notNull().unique(),
   authorName: varchar('author_name', { length: 128 }).notNull(),
   createdAt: timestamp('created_at', { withTimezone: true }).defaultNow(),
+  imageUrl: text('imageUrl'),
 });
