@@ -13,7 +13,13 @@ export default async function LandingPage() {
 
       {/* Hero / Feed */}
       <main className="max-w-3xl mx-auto py-10 px-4">
-        <h1 className="text-3xl font-bold mb-6">Latest Posts</h1>
+        <h1 className="text-3xl font-bold mb-6">Traveling Sharing Writing </h1>
+        <h2> Been somewhere unforgettable? Share your travel stories with the world! </h2>
+        <br />
+        <h2>Post your favorite travel memory - photos welcome!</h2>
+        
+        <br />
+        <h2 className="text-xl mb-4">See latest posts</h2>
 
         <div className="space-y-6">
           {allPosts.length === 0 ? (
