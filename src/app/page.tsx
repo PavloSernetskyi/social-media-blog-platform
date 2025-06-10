@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { db } from '@/db/drizzle';
 import { posts } from '@/db/schema';
 import Navbar from '@/components/Navbar';
@@ -37,12 +36,10 @@ export default async function LandingPage() {
 
                 {/*Display thumbnail image if present */}
                 {post.imageUrl && (
-                  <Image
+                  <img
                     src={post.imageUrl}
                     alt={post.title}
-                    width={112}
-                    height={80}
-                    className="object-cover rounded-md ml-2"
+                    className="w-28 h-20 object-cover rounded-md ml-2"
                   />
                 )}
               </div>

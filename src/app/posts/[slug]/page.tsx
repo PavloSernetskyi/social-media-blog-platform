@@ -2,18 +2,14 @@ import { db } from '@/db/drizzle';
 import { posts } from '@/db/schema';
 import { eq } from 'drizzle-orm';
 import { notFound } from 'next/navigation';
-import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 
-interface PageProps {
-  params: {
-    slug: string;
-  };
-  searchParams: { [key: string]: string | string[] | undefined };
+interface PostPageProps {
+  params: { slug: string };
 }
 
-export default async function PostPage({ params }: PageProps) {
-  const { slug } = params;
+export default async function PostPage(props: PostPageProps) {
+  const { slug } = props.params; // no need to await
 
   const post = await db
     .select()
@@ -32,11 +28,9 @@ export default async function PostPage({ params }: PageProps) {
 
         {/* Display image if present */}
         {post.imageUrl && (
-          <Image
+          <img
             src={post.imageUrl}
             alt={post.title}
-            width={1200}
-            height={400}
             className="w-full rounded mb-6 max-h-[400px] object-cover"
           />
         )}
