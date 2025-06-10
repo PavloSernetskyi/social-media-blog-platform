@@ -2,6 +2,7 @@ import { db } from '@/db/drizzle';
 import { posts } from '@/db/schema';
 import { eq } from 'drizzle-orm';
 import { notFound } from 'next/navigation';
+import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 
 interface PostPageProps {
@@ -28,9 +29,11 @@ export default async function PostPage(props: PostPageProps) {
 
         {/* Display image if present */}
         {post.imageUrl && (
-          <img
+          <Image
             src={post.imageUrl}
             alt={post.title}
+            width={1200}
+            height={400}
             className="w-full rounded mb-6 max-h-[400px] object-cover"
           />
         )}
