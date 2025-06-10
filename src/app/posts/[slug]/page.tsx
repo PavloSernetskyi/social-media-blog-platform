@@ -5,12 +5,13 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 
-interface PostPageProps {
-  params: { slug: string };
+type Props = {
+  params: { slug: string }
+  searchParams: { [key: string]: string | string[] | undefined }
 }
 
-export default async function PostPage(props: PostPageProps) {
-  const { slug } = props.params; // no need to await
+export default async function PostPage({ params }: Props) {
+  const { slug } = params;
 
   const post = await db
     .select()
