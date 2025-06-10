@@ -5,11 +5,14 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 
-export default async function PostPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+interface PageProps {
+  params: {
+    slug: string;
+  };
+  searchParams: { [key: string]: string | string[] | undefined };
+}
+
+export default async function PostPage({ params }: PageProps) {
   const { slug } = params;
 
   const post = await db
